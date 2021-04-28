@@ -120,7 +120,7 @@ class ItemController extends Controller
             'name'        => 'required',
             'description' => 'required',
             'price'       => 'required',
-            'image'       => 'required|mimes:jpeg,jpg,bmp,png',
+            
         ]);
 
          $image = $request->file('image');

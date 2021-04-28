@@ -28,7 +28,7 @@
                         <th>Name</th>
                         <th>Image</th>
                         <th>Category</th>
-                        <th>Description</th>
+                        {{-- <th>Description</th> --}}
                         <th>Price</th>
                         <th>Created at</th>
                         <th>Updated at</th>
@@ -47,7 +47,7 @@
                             style="height: 100px; width: 100px" alt=""></td>
                           {{-- <td>{{ $value->image }}</td> --}}
                           <td>{{ $value->category->category }}</td>
-                          <td>{{ $value->description }}</td>
+                          {{-- <td>{{ $value->description }}</td> --}}
                           <td>{{ $value->price }}</td>
                           <td>{{ $value->created_at }}</td>
                           <td>{{ $value->updated_at }}</td>
