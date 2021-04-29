@@ -1,8 +1,8 @@
 
     <div class="sidebar" data-color="purple" data-background-color="white" data-image="{{ asset('backend/assets/img/sidebar-1.jpg') }}">
   
-      <div class="logo"><a href="http://www.creative-tim.com" class="simple-text logo-normal">
-          Creative Tim
+      <div class="logo"><a href="{{ route('admin.dashboard') }}" class="simple-text logo-normal">
+          Mamam's Kitchen
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
@@ -30,36 +30,19 @@
               <p>Items</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./icons.html">
+          <li class="{{ Request::is('admin/reservation*') ? 'active':'' }} ">
+            <a class="nav-link" href="{{ route('reservation.index') }} ">
               <i class="material-icons">bubble_chart</i>
-              <p>Icons</p>
+              <p>Resarvation</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./map.html">
+          <li class="{{ Request::is('admin/contact*') ? 'active':'' }} ">
+            <a class="nav-link" href="{{ route('contact.index') }}">
               <i class="material-icons">location_ons</i>
-              <p>Maps</p>
+              <p>Contact Message</p>
             </a>
           </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./notifications.html">
-              <i class="material-icons">notifications</i>
-              <p>Notifications</p>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a class="nav-link" href="./rtl.html">
-              <i class="material-icons">language</i>
-              <p>RTL Support</p>
-            </a>
-          </li>
-          <li class="nav-item active-pro ">
-            <a class="nav-link" href="./upgrade.html">
-              <i class="material-icons">unarchive</i>
-              <p>Upgrade to PRO</p>
-            </a>
-          </li>
+                                                                 
         </ul>
       </div>
     </div>

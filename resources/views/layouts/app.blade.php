@@ -15,6 +15,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
 
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap.min.css">
     <!-- Styles -->
@@ -110,7 +111,7 @@
   <script src="{{ asset('backend/assets/js/material-dashboard.js?v=2.1.2') }}" type="text/javascript"></script>
   <!-- Material Dashboard DEMO methods, don't include it in your project! -->
   <script src="{{ asset('backend/assets/demo/demo.js') }}"></script>
-
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> 
   <script>
     $(document).ready(function() {
       $().ready(function() {
@@ -289,5 +290,7 @@
 
     });
   </script>
+
+  {!! Toastr::message() !!}
 </body>
 </html>

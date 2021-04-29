@@ -7,15 +7,18 @@
         <!-- <link rel="shortcut icon" href="images/star.png" type="favicon/ico" /> -->
 
         <title>Mamma's Kitchen</title>
+ 
+    <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/owl.carousel.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/owl.theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/flexslider.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/pricing.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap-datetimepicker.min.css') }}">
 
-        <link rel="stylesheet" href="{{ asset('frontend/css/bootstrap.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('frontend/css/font-awesome.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('frontend/css/owl.carousel.css') }}">
-        <link rel="stylesheet" href="{{ asset('frontend/css/owl.theme.css') }}">
-        <link rel="stylesheet" href="{{ asset('frontend/css/animate.css') }}">
-        <link rel="stylesheet" href="{{ asset('frontend/css/flexslider.css') }}">
-        <link rel="stylesheet" href="{{ asset('frontend/css/pricing.css') }}">
-        <link rel="stylesheet" href="{{ asset('frontend/css/main.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
 
   <style type="text/css" media="screen">
       
@@ -627,71 +630,67 @@
 
 
 
-        <section class="reservation">
-            <img class="img-responsive section-icon hidden-sm hidden-xs" src="images/icons/reserve_color.png">
+<section class="reservation">
+  <img class="img-responsive section-icon hidden-sm hidden-xs" 
+   src="{{ asset('frontend/images/icons/reserve_color.png') }}">
             <div class="wrapper">
                 <div class="container-fluid">
                     <div class=" section-content">
                         <div class="row">
                             <div class="col-md-5 col-sm-6">
-                                <form class="reservation-form" method="post" action="reserve.php">
-                                    <div class="row">
-                                        <div class="col-md-6 col-sm-6">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control reserve-form empty iconified" name="name" id="name" required="required" placeholder="  &#xf007;  Name">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="email" name="email" class="form-control reserve-form empty iconified" id="email" required="required" placeholder="  &#xf1d8;  e-mail">
-                                            </div>
-                                        </div>
 
-                                        <div class="col-md-6 col-sm-6">
-                                            <div class="form-group">
-                                                <input type="tel" class="form-control reserve-form empty iconified" name="phone" id="phone" required="required" placeholder="  &#xf095;  Phone">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control reserve-form empty iconified" name="datepicker" id="datepicker" required="required" placeholder="&#xf017;  Time">
-                                            </div>
-                                        </div>
+                <form class="reservation-form" method="post" action="{{ route('reservation.reserve') }}">
+                            @csrf
 
-                                        <div class="col-md-12 col-sm-12">
-                                            <textarea type="text" name="message" class="form-control reserve-form empty iconified" id="message" rows="3" required="required" placeholder="  &#xf086;  We're listening"></textarea>
-                                        </div>
-
-                                        <div class="col-md-12 col-sm-12">
-                                            <button type="submit" id="submit" name="submit" class="btn btn-reservation">
-                                                <span><i class="fa fa-check-circle-o"></i></span>
-                                                Make a reservation
-                                            </button>
-                                        </div>
-                                            
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control reserve-form empty iconified" name="name" id="name"placeholder="  &#xf007;  Name">
+                                               
                                     </div>
-                                </form>
-                            </div>
-
-                            <div class="col-md-2 hidden-sm hidden-xs"></div>
-
-                            <div class="col-md-4 col-sm-6 col-xs-12">
-                                <div class="opening-time">
-                                    <h3 class="opening-time-title">Hours</h3>
-                                    <p>Mon to Fri: 7:30 AM - 11:30 AM</p>
-                                    <p>Sat & Sun: 8:00 AM - 9:00 AM</p>
-
-                                    <div class="launch">
-                                        <h4>Lunch</h4>
-                                        <p>Mon to Fri: 12:00 PM - 5:00 PM</p>
+        <font style="color: red">
+              {{ ($errors->has('name'))?($errors->first('name')):'' }}
+         </font> 
+                                    <div class="form-group">
+                                        <input type="email" name="email" class="form-control reserve-form empty iconified" id="email"  placeholder="  &#xf1d8;  e-mail">
                                     </div>
-
-                                    <div class="dinner">
-                                        <h4>Dinner</h4>
-                                        <p>Mon to Sat: 6:00 PM - 1:00 AM</p>
-                                        <p>Sun: 5:30 PM - 12:00 AM</p>
-                                    </div>
+        <font style="color: red">
+              {{ ($errors->has('email'))?($errors->first('email')):'' }}
+         </font>              
                                 </div>
-                            </div>
-                        </div>
 
-                    </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <input type="tel" class="form-control reserve-form empty iconified" name="phone" id="phone"  placeholder="  &#xf095;  Phone">
+                                    </div>
+       <font style="color: red">
+              {{ ($errors->has('phone'))?($errors->first('phone')):'' }}
+         </font>                        
+                                    <div class="form-group">
+                                        <input type="text" class="form-control reserve-form empty iconified" name="dateandtime" id="datetimepicker1" placeholder="&#xf017;  Time">
+                                    </div>
+        <font style="color: red">
+              {{ ($errors->has('dateandtime'))?($errors->first('dateandtime')):'' }}
+         </font>                           
+                                </div>
+
+                                <div class="col-md-12 col-sm-12">
+                                    <textarea type="text" name="message" class="form-control reserve-form empty iconified" id="message" rows="3"  placeholder="  &#xf086;  We're listening"></textarea>
+         <font style="color: red">
+              {{ ($errors->has('message'))?($errors->first('message')):'' }}
+         </font>                         
+                                </div>
+
+                                <div class="col-md-12 col-sm-12">
+                                    <button type="submit" id="submit" name="submit" class="btn btn-reservation">
+                                        <span><i class="fa fa-check-circle-o"></i></span>
+                                        Make a reservation
+                                    </button>
+                                </div>
+
+                            </div>
+                        </form>
+
                 </div>
             </div>
         </section>
@@ -735,35 +734,55 @@
         </div>
 
 
+{{-- Form Section --}}
+<section class="contact-form">
+<div class="container">
+     <div class="row">
+        <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
+            <div class="row">
 
-        <section class="contact-form">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
-                        <div class="row">
-                             <form class="contact-form" method="post" action="contact.php">
-                                
-                                <div class="col-md-6 col-sm-6">
-                                    <div class="form-group">
-                                        <input  name="name" type="text" class="form-control" id="name" required="required" placeholder="  Name">
-                                    </div>
-                                    <div class="form-group">
-                                        <input name="email" type="email" class="form-control" id="email" required="required" placeholder="  Email">
-                                    </div>
-                                    <div class="form-group">
-                                        <input name="subject" type="text" class="form-control" id="subject" required="required" placeholder="  Subject">
-                                    </div>
-                                </div>
+ <form class="contact-form" method="post" action="{{ route('frontend.index') }}">
+        @csrf 
+         <div class="col-md-6 col-sm-6">
+             <div class="form-group">
+                <input  name="name" type="text" class="form-control" id="name"  placeholder="  Name">
+            </div>
 
-                                <div class="col-md-6 col-sm-6">
-                                    <textarea name="message" type="text" class="form-control" id="message" rows="7" required="required" placeholder="  Message"></textarea>
-                                </div>
+         <font style="color: red">
+              {{ ($errors->has('name'))?($errors->first('name')):'' }}
+         </font>
+             
+           <div class="form-group">
+            <input name="email" type="email" class="form-control" id="email" placeholder="  Email">
+          </div>
 
-                                <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
-                                    <div class="text-center">
-                                        <button type="submit" id="submit" name="submit" class="btn btn-send">Send </button>
-                                    </div>
-                                </div>
+         <font style="color: red">
+              {{ ($errors->has('email'))?($errors->first('email')):'' }}
+         </font>
+
+     <div class="form-group">
+        <input name="subject" type="text" class="form-control" id="subject"  placeholder="  Subject">
+      </div>
+
+       <font style="color: red">
+              {{ ($errors->has('subject'))?($errors->first('subject')):'' }}
+        </font>
+
+     </div>
+
+        <div class="col-md-6 col-sm-6">
+             <textarea name="message" type="text" class="form-control" id="message" rows="7"  placeholder="  Message"></textarea>
+         </div>
+
+         <font style="color: red">
+              {{ ($errors->has('message'))?($errors->first('message')):'' }}
+        </font>
+
+         <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+            <div class="text-center">
+             <button type="submit" id="submit" name="submit" class="btn btn-send">Send </button>
+          </div>
+        </div>
                             </form>
                         </div>
                     </div>
@@ -795,7 +814,21 @@
         <script type="text/javascript" src="{{ asset('frontend/js/jquery.hoverdir.js') }}"></script>
         <script type="text/javascript" src="{{ asset('frontend/js/jQuery.scrollSpeed.js') }}"></script>
         <script src="{{ asset('frontend/js/script.js') }}"></script>
-        
+        <script src="{{ asset('frontend/js/bootstrap-datetimepicker.min.js') }}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+<script>
+    $(function () {
+        $('#datetimepicker1').datetimepicker({
+            format: "dd MM yyyy - HH:11 P",
+            showMeridian: true,
+            autoclose: true,
+            todayBtn: true
+        });
+    })
+</script>
+
+{!! Toastr::message() !!}
 
     </body>
 </html>
